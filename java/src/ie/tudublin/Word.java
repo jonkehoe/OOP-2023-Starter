@@ -28,10 +28,22 @@ public class Word {
         this.follows = follows;
     }
 
+
     public String toString() {
-        for(Follow follow : follows) {
-            System.out.println();
+        String rs = "";
+        for (Follow follow : follows) {
+            rs += follow.toString() + "\n";
         }
+        return rs;
+    }
+
+    public Follow findFollow(String str) {
+        for(Follow follow : follows) {
+            if(follow.getWord().equals(str)) {
+                return follow;
+            }
+        }
+        return null;
     }
 
     
