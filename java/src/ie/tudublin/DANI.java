@@ -1,10 +1,18 @@
 package ie.tudublin;
 
 import java.util.ArrayList;
+import processing.data.Table;
+import processing.data.TableRow;
 
 import processing.core.PApplet;
 
 public class DANI extends PApplet {
+
+	private ArrayList<Word> model;
+
+	public DANI() {
+
+	}
 
 	
 
@@ -40,5 +48,29 @@ public class DANI extends PApplet {
 		textSize(20);
         textAlign(CENTER, CENTER);
         
+	}
+
+	public Word findWord(String str) {
+        for (Word word : model) {
+            if (word.getWord().equals(str)) {
+                return word;
+            }
+		}
+		return null;
+		
+	}
+	
+	
+	
+
+	public void loadFile() {
+		String[] lines = loadStrings("small.txt");
+
+        for (String line : lines) {
+            String[] words = split(line, ' ');
+
+		}
+		
+
 	}
 }
