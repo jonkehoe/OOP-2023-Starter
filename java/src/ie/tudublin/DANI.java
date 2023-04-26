@@ -30,6 +30,7 @@ public class DANI extends PApplet {
 
 	public void setup() {
 		colorMode(HSB);
+		loadFile();
 
        
 	}
@@ -69,8 +70,36 @@ public class DANI extends PApplet {
         for (String line : lines) {
             String[] words = split(line, ' ');
 
+			for(int i = 0; i < words.length - 1; i++) {
+				String word1 = words[i].replaceAll("[^\\w\\s]", "");
+				word1.toLowerCase();
+
+				Word w = findWord(word1);
+				if (w == null) {
+					w = new Word(word1);
+					model.add(w);
+				}
+
+			}
+
+
 		}
 		
 
+	}
+
+	public void printModel() {
+		for (Word word : model) {
+			System.out.println(word);
+		}
+
+	}
+
+	public void writeSonnet() {
+		for(int i = 0; i < 14; i++) {
+			for(int j = 0; j < 7; j++) {
+
+			}
+		}
 	}
 }
